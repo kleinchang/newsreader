@@ -66,6 +66,7 @@ deploy:
   secret_access_key:
     secure: 2GFc+qDg0JXqDTfE+zaSX+uVInBkno7KJ0dy1AUVYlNF1HsLgac1Es/1tJXXkLcPwuOzXOss+8A2KCEqcTGO0HsW8MRNiRPMIGxBEAYqfugrI+ia4Q8VuT3M9EzFJ3ox+pj2aWoYsuQ55ibULWsOoZlL4bCtLSQPpkgWiWf9RioQlTlnTA4BcD1inI4t3U6ltJhQsbv57+yLMIRl0J24Z9YCXizPgb7CSaFrrbM3ScYjmphhq5c41VLTEjQn3p8966F1RzqOanroQalHr5tQaNBGk+vX6Gx6GKee5cdh2cvE+8ODIggw1pIL6mtkBgXsBX88lf9AuZqTRt3RC2GESzJbGBi16H69f32MXTd5/7wATUHdJMO+l7X4blbZlhiQttK55s5LzsJ+gYVXDv0+TsE3IM6BZ/TrUdNF8wyRqYGP++OucWXaai9tkkasI/giGIC1vujU4K1pSYLnc4bIwZdoUq22ZqShmrYIj5yJlViqgFKLlZ+/uSFp1fwhZFO8dK27zdSIlVnqRx8FcET2WqihMbBfi7EMjxk3f9Z3wMs5HS0HlFdxzObrInFOdO0VEHQLJwL3rPAZH3cH07wsXymddLo6apWRwP8mT6scZOsxfyuTO/lm8j3XTTp7SWf1llp7XEvCZ44r9za4oVzEX01nF+AzbZ4lNq4n7unCZgc=
   bucket: travis-apk
+  skip_cleanup: true
   on:
     repo: kleinchang/newsreader
     branch: ci
