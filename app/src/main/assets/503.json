@@ -1,0 +1,13 @@
+{
+  "error": {
+    "errors": [
+      {
+        "domain": "global",
+        "reason": "Unavailable",
+        "message": "Service Unavailable"
+      }
+    ],
+    "code": 503,
+    "message": "Service Unavailable"
+  }
+}
