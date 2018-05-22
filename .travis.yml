@@ -52,7 +52,7 @@ before_deploy:
 # - cp $TRAVIS_BUILD_DIR/app/todoapp.jks $HOME
 - cd app/build/outputs/
 - mv apk/ apk-$TRAVIS_BUILD_NUMBER-$TRAVIS_COMMIT/
-- mv log/ log-$TRAVIS_BUILD_NUMBER-$TRAVIS_COMMIT/
+#- mv log/ log-$TRAVIS_BUILD_NUMBER-$TRAVIS_COMMIT/
 
 # - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $HOME/todoapp.jks -storepass $storepass -keypass $keypass app-release-unsigned.apk todoapp_private
 
