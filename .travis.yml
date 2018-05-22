@@ -45,26 +45,29 @@ android:
   - sys-img-$ANDROID_ABI-google_apis-$EMULATOR_API
   - sys-img-$ANDROID_ABI-google_apis-$ANDROID_API_LEVEL
 script:
-# - "./gradlew clean assemble"
-- "./gradlew clean assemble connectedCheck -PdisablePreDex --stacktrace"
+- "./gradlew clean assemble"
+# - "./gradlew clean assemble connectedCheck -PdisablePreDex --stacktrace"
 
 before_deploy:
 # - cp $TRAVIS_BUILD_DIR/app/todoapp.jks $HOME
-- cd app/build/outputs/apk/
+- cd app/build/outputs/
+- mv apk/ apk-$TRAVIS_BUILD_NUMBER-$TRAVIS_COMMIT/
+- mv log/ log-$TRAVIS_BUILD_NUMBER-$TRAVIS_COMMIT/
+
 # - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $HOME/todoapp.jks -storepass $storepass -keypass $keypass app-release-unsigned.apk todoapp_private
 
 # Verification
 # - jarsigner -verify app-release-unsigned.apk
 # - "${ANDROID_HOME}/build-tools/26.0.2/zipalign -v 4 app-release-unsigned.apk app-release.apk"
 
-# deploy:
-#   provider: s3
-#   access_key_id: AKIAJJALV6EMTLSWWH5Q
-#   secret_access_key:
-#     secure: uX6M9TWFnAiH/bunc5Uzbm6Al208uDqGaDjP0xczAXi1HIBhSM2GaIkbkQ4jJW1hn6UDcAzDmE8bgCRZidEcMM9Fjp7uVruoHBQ4XIzKYr80Z0dSKvtydR9G3jMo6gxgZMP/dJblX9fjtoALBcphW4ZNV6bt8vfwV8dv+kbtC+zArxfgbqM5UMBmYpAlleVqK2183e69vQaPw67w+bOrIHJ+Wm28xWHzXr6CFtsG4+TwX8hWfMsa2Jm4ZjILgFk/EC6OCQoCyaLNz0Hz7mHDzDxavrd/JkmkLRYvjSVk8LPQs7aXJwt1OZNIuP7mGq5pbBFaOwOHYht9zAV2UN0x/J+IK497QLXhyxX30cfFRFz7M+K2KZVFkff2i6j29m51N+JKO4MQn2nJqCTDxy1nvQABO41yqTR+76DQurg4U5uf+RUKdCuOOs+a9p/hTau4W7bzMgMFDIl7tJy1wpZwhU4L3UwZblwtt2mjGh7imFgsZm1lsnt+Qh65Gt+Efjeo1QopGFKavYfhfXr3FR7FTRXXJSVclJzHrq3yVeFVyeMe0g1txuueYl2ovuPa0s2EK0ON3fw+QYNSzNZMw4epIgh7yMfuBDeT+LVmNNLQDgJFkRVM8M2bh3kABDHVhhKbNKMjh7uojIHZgRKMPILS684jxyJOtPo8oqeY51l0UZY=
-#   bucket: travis-apk
-#   skip_cleanup: true
+deploy:
+  provider: s3
+  access_key_id: AKIAJJALV6EMTLSWWH5Q
+  secret_access_key:
+    secure: uX6M9TWFnAiH/bunc5Uzbm6Al208uDqGaDjP0xczAXi1HIBhSM2GaIkbkQ4jJW1hn6UDcAzDmE8bgCRZidEcMM9Fjp7uVruoHBQ4XIzKYr80Z0dSKvtydR9G3jMo6gxgZMP/dJblX9fjtoALBcphW4ZNV6bt8vfwV8dv+kbtC+zArxfgbqM5UMBmYpAlleVqK2183e69vQaPw67w+bOrIHJ+Wm28xWHzXr6CFtsG4+TwX8hWfMsa2Jm4ZjILgFk/EC6OCQoCyaLNz0Hz7mHDzDxavrd/JkmkLRYvjSVk8LPQs7aXJwt1OZNIuP7mGq5pbBFaOwOHYht9zAV2UN0x/J+IK497QLXhyxX30cfFRFz7M+K2KZVFkff2i6j29m51N+JKO4MQn2nJqCTDxy1nvQABO41yqTR+76DQurg4U5uf+RUKdCuOOs+a9p/hTau4W7bzMgMFDIl7tJy1wpZwhU4L3UwZblwtt2mjGh7imFgsZm1lsnt+Qh65Gt+Efjeo1QopGFKavYfhfXr3FR7FTRXXJSVclJzHrq3yVeFVyeMe0g1txuueYl2ovuPa0s2EK0ON3fw+QYNSzNZMw4epIgh7yMfuBDeT+LVmNNLQDgJFkRVM8M2bh3kABDHVhhKbNKMjh7uojIHZgRKMPILS684jxyJOtPo8oqeY51l0UZY=
+  bucket: travis-apk
+  skip_cleanup: true
 
-#   on:
-#     repo: kleinchang/newsreader
-#     branch: ci
+  on:
+    repo: kleinchang/newsreader
+    branch: ci
