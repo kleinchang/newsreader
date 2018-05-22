@@ -45,14 +45,14 @@ android:
   - sys-img-$ANDROID_ABI-google_apis-$EMULATOR_API
   - sys-img-$ANDROID_ABI-google_apis-$ANDROID_API_LEVEL
 script:
-- "./gradlew clean assemble"
-# - "./gradlew clean assemble connectedCheck -PdisablePreDex --stacktrace"
+# - "./gradlew clean assemble"
+- "./gradlew clean assemble connectedCheck -PdisablePreDex --stacktrace"
 
 before_deploy:
 # - cp $TRAVIS_BUILD_DIR/app/todoapp.jks $HOME
 - cd app/build/outputs/
-- mv apk/ apk-$TRAVIS_BUILD_NUMBER-$TRAVIS_COMMIT/
-#- mv log/ log-$TRAVIS_BUILD_NUMBER-$TRAVIS_COMMIT/
+- mv apk/ apk-newsreader-$TRAVIS_BUILD_NUMBER-$TRAVIS_COMMIT/
+- mv logs/ logs-newsreader-$TRAVIS_BUILD_NUMBER-$TRAVIS_COMMIT/
 
 # - jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $HOME/todoapp.jks -storepass $storepass -keypass $keypass app-release-unsigned.apk todoapp_private
 
