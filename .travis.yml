@@ -46,7 +46,7 @@ android:
   - sys-img-$ANDROID_ABI-google_apis-$ANDROID_API_LEVEL
 script:
 # - "./gradlew clean assemble"
-- "./gradlew clean assemble connectedCheck -PdisablePreDex --stacktrace"
+- "./gradlew clean assemble connectedProdDebugAndroidTest testProdDebugUnitTest -PdisablePreDex --stacktrace"
 
 before_deploy:
 # - cp $TRAVIS_BUILD_DIR/app/todoapp.jks $HOME
