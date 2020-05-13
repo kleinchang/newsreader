@@ -31,5 +31,5 @@ ext {
     supportLibVersion = "26.1.0"
     mockitoVersion = '2.8.47'
     espressoVersion = '3.0.1'
-    daggerVersion = '2.14.1'
+    daggerVersion = '2.27'
 }
