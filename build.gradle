@@ -30,6 +30,6 @@ task clean(type: Delete) {
 ext {
     supportLibVersion = "26.1.0"
     mockitoVersion = '2.8.47'
-    espressoVersion = '3.0.1'
+    espressoVersion = '3.0.2'
     daggerVersion = '2.14.1'
 }
